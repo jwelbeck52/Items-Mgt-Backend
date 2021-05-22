@@ -16,7 +16,8 @@ class WishlistController extends Controller
      */
     public function index()
     {
-        $wishes = Item::all();
+        $wishes = Item::all()
+                 ->where('isOwned', 0);
         return $wishes;
     }
 

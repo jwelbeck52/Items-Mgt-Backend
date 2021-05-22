@@ -16,7 +16,8 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $items = Item::all();
+        $items = Item::all()
+                ->where('isOwned', 1);
         return $items;
     }
 

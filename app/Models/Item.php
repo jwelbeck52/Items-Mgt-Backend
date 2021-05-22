@@ -14,6 +14,7 @@ class Item extends Model
         'desccription',
         'price',
         'status',
+        'date_of_purchase',
         'src_name',
         'src_link',
         'img_src'
