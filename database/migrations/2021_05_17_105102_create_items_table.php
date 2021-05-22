@@ -20,6 +20,7 @@ class CreateItemsTable extends Migration
             $table->integer('price');
             $table->boolean('isOwned');
             $table->string('status');
+            $table->date('date_of_purchase');
             $table->string('src_name');
             $table->string('src_link')->nullable();
             $table->string('img_src');
