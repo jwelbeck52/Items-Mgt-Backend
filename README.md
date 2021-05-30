@@ -1,73 +1,72 @@
-# BreezeItems Backend (Laravel)
+# BreezeItems API Backend (Laravel)
 
-This is the backend for the BreezeItems Web Application.
+This is the backend for the BreezeItems Web Application using Laravel 8 API Resources. This is an API for an Item Management (CRUD) Application.
 
-## Getting Started
+Try it live [here](#)
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
-
+```
 PHP 7.4 and above
-
+Composer
+MySQL
 ```
-Give examples
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### 1) Clone the repository
 ```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
+git clone https://github.com/jwelbeck52/Items-Mgt-Backend.git
 ```
 
-And repeat
-
+### 2) Install Dependencies
 ```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
+composer install
 ```
 
-### And coding style tests
-
-Explain what these tests test and why
-
+### 3) Rename .env.example to .env and update with your configurations
 ```
-Give an example
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=item_mgt
+DB_USERNAME=
+DB_PASSWORD=
+```
+### 4) Run Migrations
+```
+php artisan migrate
 ```
 
-## Deployment
+### 5) Seed the db with initial data
+```
+php artisan db:seed
+```
 
-Add additional notes about how to deploy this on a live system
+### 6) Generate encryption key
+```
+php artisan key:generate
+```
+### 7) (Optional) Add virtual host if using Apache
+
+
+## API Endpoints
+
+### Get Owned items
+```
+GET api/items
+```
+
+### Get Wishlist items
+```
+GET api/wishes
+```
+
 
 ## Built With
 
 * [Laravel](https://laravel.com) - A php web framework
-
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
@@ -79,9 +78,4 @@ See also the list of [contributors](https://github.com/jwelbeck52/Items-Mgt-Back
 
 This project is licensed under GPL-3.0 License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
 
