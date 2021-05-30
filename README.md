@@ -1,4 +1,4 @@
-# Project Title
+# BreezeItems Backend (Laravel)
 
 This is the backend for the BreezeItems Web Application.
 
@@ -8,7 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+PHP 7.4 and above
 
 ```
 Give examples
@@ -77,7 +77,7 @@ See also the list of [contributors](https://github.com/jwelbeck52/Items-Mgt-Back
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under GPL-3.0 License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 
