@@ -17,7 +17,7 @@ class CreateItemsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('description')->nullable();
-            $table->integer('price');
+            $table->decimal('price',5,2);
             $table->boolean('isOwned');
             $table->string('status');
             $table->date('date_of_purchase');
