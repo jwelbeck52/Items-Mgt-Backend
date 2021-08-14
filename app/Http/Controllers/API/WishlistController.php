@@ -16,9 +16,9 @@ class WishlistController extends Controller
      */
     public function index()
     {
-        $wishes = Item::all()
-                 ->where('isOwned', 0);
-        return $wishes;
+        $wish_list = Item::all()
+                 ->where('is_owned', 0);
+        return $wish_list;
     }
 
     /**
@@ -28,7 +28,7 @@ class WishlistController extends Controller
      */
     public function create()
     {
-        //
+        return "item created" ;
     }
 
     /**
@@ -39,7 +39,10 @@ class WishlistController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $wish_item = Item::create($request->all());
+        $wish_item->is_owned = 0;
+        $wish_item->save();
+        return $wish_item;
     }
 
     /**
@@ -50,7 +53,8 @@ class WishlistController extends Controller
      */
     public function show($id)
     {
-        //
+        $wish_item = Item::where('is_owned',0)->find($id);
+        return $wish_item;
     }
 
     /**
@@ -61,7 +65,7 @@ class WishlistController extends Controller
      */
     public function edit($id)
     {
-        //
+        return $id . " edited" ;
     }
 
     /**
@@ -73,7 +77,9 @@ class WishlistController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $wish_item =  Item::find($id);
+        $wish_item->update($request->all());
+        return $wish_item ;
     }
 
     /**
@@ -84,6 +90,6 @@ class WishlistController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return Item::destroy($id);
     }
 }

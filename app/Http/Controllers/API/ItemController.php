@@ -17,7 +17,7 @@ class ItemController extends Controller
     public function index()
     {
         $items = Item::all()
-                ->where('isOwned', 1);
+                ->where('is_owned', 1);
         return $items;
     }
 
@@ -26,9 +26,10 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //returns the create item page
     public function create()
     {
-        //
+        return "item created" ;
     }
 
     /**
@@ -39,7 +40,10 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $item = Item::create($request->all());
+        $item->is_owned = 1;
+        $item->save();
+        return $item;
     }
 
     /**
@@ -50,7 +54,8 @@ class ItemController extends Controller
      */
     public function show($id)
     {
-        //
+        $item = Item::where('is_owned',1)->find($id);
+        return $item;
     }
 
     /**
@@ -59,9 +64,11 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //returns the edit item page
     public function edit($id)
     {
         //
+        return $id . " edited" ;
     }
 
     /**
@@ -73,7 +80,9 @@ class ItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $item =  Item::find($id);
+        $item->update($request->all());
+        return $item ;
     }
 
     /**
@@ -84,6 +93,8 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return Item::destroy($id);
     }
+
+    
 }

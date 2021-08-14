@@ -25,12 +25,10 @@ class ItemFactory extends Factory
             'name' => $this->faker->word,
             'description' => $this->faker->sentence(10),
             'price' => $this->faker->randomDigit,
-            'isOwned' => $this->faker->boolean,
-            'status' => $this->faker->word,
+            'is_owned' => $this->faker->boolean,
             'date_of_purchase' => $this->faker->date,
             'src_name' => $this->faker->word,
             'src_link' => $this->faker->word,
-            'img_src' =>$this->faker->word,
         ];
     }
 }

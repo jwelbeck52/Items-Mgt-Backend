@@ -15,15 +15,15 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('description')->nullable();
-            $table->decimal('price',5,2);
-            $table->boolean('isOwned');
-            $table->string('status');
-            $table->date('date_of_purchase');
-            $table->string('src_name');
+            $table->decimal('price',8,2)->default('0.00');
+            $table->boolean('is_owned')->default('0');;
+            $table->string('condition')->default('new');
+            $table->date('date_of_purchase')->nullable();
+            $table->string('src_name')->nullable();
             $table->string('src_link')->nullable();
-            $table->string('img_src');
+            $table->string('img_src')->default('img_src');
             $table->timestamps();
         });
     }
