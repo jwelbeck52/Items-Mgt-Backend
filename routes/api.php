@@ -25,8 +25,20 @@ Route::get('search/{name}',  [SearchController::class,'search']);
 // Route::put('items/{item}',  [ItemController::class,'update']);
 // Route::delete('items/{item}',  [ItemController::class,'destroy']);
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+// Route::group(['middleware' => ['auth:sanctum']], function () {
+//     Route::get('search/{name}',  [SearchController::class,'search']);
+// });
+
+
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::resource('/items', ItemController::class);
+    Route::resource('/wishlist', WishlistController::class);
+    Route::resource('/categories', CategoryController::class);
+    Route::get('search/{name}',  [SearchController::class,'search']);
 });
 
 
