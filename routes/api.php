@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 // use App\Http\Controllers\API\ItemController;
 // use App\Http\Controllers\API\SearchController;
@@ -15,10 +16,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::resource('/items', ItemController::class);
-Route::resource('/wishlist', WishlistController::class);
-Route::resource('/categories', CategoryController::class);
-Route::get('search/{name}',  [SearchController::class,'search']);
+
 // Route::get('items',  [ItemController::class,'index']);
 // Route::get('items/{item}',  [ItemController::class,'show']);
 // Route::post('items',  [ItemController::class,'store']);
@@ -33,12 +31,16 @@ Route::get('search/{name}',  [SearchController::class,'search']);
 //     Route::get('search/{name}',  [SearchController::class,'search']);
 // });
 
+Route::post('/register',  [AuthController::class,'register']);
+Route::post('/login',  [AuthController::class,'login']);
+
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::resource('/items', ItemController::class);
     Route::resource('/wishlist', WishlistController::class);
     Route::resource('/categories', CategoryController::class);
     Route::get('search/{name}',  [SearchController::class,'search']);
+    Route::post('/logout',  [AuthController::class,'logout']);
 });
 
 
