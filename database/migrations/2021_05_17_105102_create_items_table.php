@@ -18,7 +18,7 @@ class CreateItemsTable extends Migration
             $table->string('name')->unique();
             $table->string('description')->nullable();
             $table->decimal('price',8,2)->default('0.00');
-            $table->boolean('is_owned')->default('0');;
+            $table->boolean('is_owned')->default('1');;
             $table->string('condition')->default('new');
             $table->date('date_of_purchase')->nullable();
             $table->string('src_name')->nullable();

@@ -34,12 +34,14 @@ use App\Http\Controllers\AuthController;
 Route::post('/register',  [AuthController::class,'register']);
 Route::post('/login',  [AuthController::class,'login']);
 
-
-Route::middleware(['auth:sanctum'])->group(function () {
-    Route::resource('/items', ItemController::class);
+Route::resource('/items', ItemController::class);
     Route::resource('/wishlist', WishlistController::class);
     Route::resource('/categories', CategoryController::class);
     Route::get('search/{name}',  [SearchController::class,'search']);
+
+Route::middleware(['auth:sanctum'])->group(function () {
+    
+    
     Route::post('/logout',  [AuthController::class,'logout']);
 });
 

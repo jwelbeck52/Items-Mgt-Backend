@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\Category;
+use App\Http\Resources\ItemResource;
 
 class ItemController extends Controller
 {
@@ -16,9 +17,10 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $items = Item::all()
-                ->where('is_owned', 1);
-        return $items;
+        // $items = Item::all()
+        //         ->where('is_owned', 1);
+        // return $items;
+        return ItemResource::collection(Item::all()->where('is_owned', 1));
     }
 
     /**
