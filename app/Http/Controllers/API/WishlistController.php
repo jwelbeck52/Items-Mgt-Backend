@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\Category;
+use App\Http\Resources\WishlistResource;
 
 class WishlistController extends Controller
 {
@@ -16,9 +17,11 @@ class WishlistController extends Controller
      */
     public function index()
     {
-        $wish_list = Item::all()
-                 ->where('is_owned', 0);
-        return $wish_list;
+        // $wish_list = Item::all()
+        //          ->where('is_owned', 0);
+        // return $wish_list;
+
+        return WishlistResource::collection(Item::all()->where('is_owned', 0));
     }
 
     /**

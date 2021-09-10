@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Item;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Resources\SearchResource;
 
 class SearchController extends Controller
 {
@@ -17,8 +18,10 @@ class SearchController extends Controller
      */
     public function search($name)
     {
-        $item = Item::where('name','like','%'.$name.'%')
-                    ->get();
-        return $item;
+        // $item = Item::where('name','like','%'.$name.'%')
+        //             ->get();
+        // return $item;
+
+        return SearchResource::collection(Item::where('name','like','%'.$name.'%')->get());
     }
 }
